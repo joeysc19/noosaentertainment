@@ -8,6 +8,8 @@ Noosa Entertainment
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- 1. THIS LINK GOES IN THE HEAD TO LOAD THE FONT -->
+  <link href="https://googleapis.com" rel="stylesheet">
 	</head>
 	<body class="single is-preload">
 
@@ -104,7 +106,14 @@ Noosa Entertainment
 										<time class="published" datetime=""></time>
 										<a href="#" class="author"><span class="name"></span><img src="images/pandanus.png" alt="" /></a>
 									</div>
+  <p>This paragraph uses the normal style from your main CSS.</p>
 
+  <!-- 2. THIS PARAGRAPH NOW USES THE MONTSERAT FONT -->
+  <p style="font-family: 'Montserrat', sans-serif; color: blue; font-size: 20px; font-weight: bold;">
+    This specific paragraph is blue, larger, bold, and uses Montserrat.
+  </p>
+
+  <p>This paragraph also uses the normal style.</p>
 									
 								</header>
 								<span class="image featured"><img src="" alt="" /></span>
