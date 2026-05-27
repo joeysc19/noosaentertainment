@@ -121,6 +121,20 @@
             .info-content {
                 padding: 30px 24px;
             }
+
+            /* Stacks the containers vertically */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjusts the space between the two boxes */
+    width: 100%;
+}
+
+/* Ensures each individual box behaves as a block element */
+.info-box {
+    display: flex; /* Or display: block depending on your inner design */
+    width: 100%;
+}
         }
     </style>
 </head>
