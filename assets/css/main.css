@@ -3610,60 +3610,6 @@ input, select, textarea {
 
 		}
 
-/* Layout configuration for the header wrapper */
-summary {
-  display: flex;
-  align-items: center;
-  padding: 20px 16px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  list-style: none; /* Removes default browser arrows */
-}
-summary::-webkit-details-marker {
-  display: none; /* Removes arrow in Safari */
-}
-
-/* 1. Styling the Icon */
-.summary-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #23048C; /* Icon matching your theme base color */
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-/* Optional: Rotate or pulse icon when accordion is open */
-details[open] .summary-icon {
-  transform: scale(1.1);
-  color: #F54927; /* Shifts color to accent color when active */
-}
-
-/* 2. Creating the Animated Line */
-summary::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%; /* Starts invisible and flat */
-  height: 2px; /* Thickness of your line */
-  background-color: #F54927; /* Color of your expanding line */
-  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Creates a smooth easing slider */
-}
-
-/* Triggers the line animation when the native [open] attribute appears */
-details[open] summary::after {
-  width: 100%; /* Fully extends across the bottom */
-}
-
-/* Content Area Adjustments */
-.content {
-  padding: 20px 16px;
-  background-color: #23048C;
-  color: #F54927;
-  line-height: 1.6;
-}
 
 
 
