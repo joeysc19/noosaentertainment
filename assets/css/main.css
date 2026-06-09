@@ -3659,4 +3659,11 @@ details[open] summary::after {
   color: #F54927; /* ◄ Change this to your preferred text colour */
 }
 
+.content {
+  padding: 16px;
+  background-color: #23048C !important;
+  line-height: 1.5;
+  color: #F54927 !important;
+}
+
 
