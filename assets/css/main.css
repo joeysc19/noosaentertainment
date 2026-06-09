@@ -3608,7 +3608,87 @@ input, select, textarea {
 				padding: 1.5em;
 			}
 
-		}
+/* Container styling */
+.accordion-group {
+  max-width: 600px;
+  font-family: sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 40px auto; /* Centers the accordion on the page */
+}
+
+/* Individual item wrapper */
+details {
+  border-bottom: 1px solid #ddd;
+  position: relative; /* Crucial anchor point for our vertical line */
+}
+
+details:last-child {
+  border-bottom: none;
+}
+
+/* --- THE FULL-HEIGHT ANIMATED VERTICAL LINE --- */
+details::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;                /* Thickness of the left accent border */
+  height: 0%;                /* Starts completely hidden at 0% height */
+  background-color: #F54927; /* Accent orange colour */
+  
+  /* Forces the animation direction to drop down from the top left corner */
+  transform-origin: top; 
+  
+  /* Creates a highly polished, snappy dropdown motion */
+  transition: height 0.35s cubic-bezier(0.25, 1, 0.5, 1); 
+  z-index: 2;                /* Keeps the line layered perfectly on top */
+}
+
+/* Triggers the full-length line growth when the accordion state becomes open */
+details[open]::after {
+  height: 100%; /* Spans the collective height of summary AND open content */
+}
+
+/* Header bar styling */
+summary {
+  display: flex;
+  align-items: center;
+  padding: 20px 16px 20px 24px; /* Left padding creates a margin for the line */
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  list-style: none;             /* Hides default browser arrows */
+}
+
+summary::-webkit-details-marker {
+  display: none;                /* Hides native arrow in Safari */
+}
+
+/* Icon Styling */
+.summary-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #23048C;               /* Base dark blue colour */
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Modifies icon scale and colour when open */
+details[open] .summary-icon {
+  transform: scale(1.1);
+  color: #F54927;               /* Swaps to accent color when active */
+}
+
+/* Content box styling */
+.content {
+  padding: 20px 16px 20px 24px; /* Left padding aligns content text with the header */
+  background-color: #23048C;    /* Your dark blue background */
+  color: #F54927;               /* Your orange font colour */
+  line-height: 1.6;
+}
 
 
 
