@@ -3654,7 +3654,7 @@ details[open] summary::after {
 /* Content box styling */
 .content {
   padding: 16px;
-  background-color: #ffffff;
+  background-color: #23048C;
   line-height: 1.5;
   color: #F54927; /* ◄ Change this to your preferred text colour */
 }
