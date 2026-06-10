@@ -54,111 +54,6 @@
             align-items: center;
         }
 
-/* HORIZONTAL & VERTICAL CENTERING WRAPPER */
-.center-layout-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* CENTERED CARD BOX WITH IMAGE INTEGRATION */
-.info-card-centered {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    max-width: 480px; /* Reduced slightly to create a tighter, premium card balance */
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-    overflow: hidden; /* Crucial: Clips the top corners of the image to fit the container radius */
-    transition: var(--transition);
-}
-
-.info-card-centered:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.08), 0 12px 15px -6px rgb(0 0 0 / 0.08);
-    border-color: var(--accent);
-}
-
-/* RESPONSIVE BANNER IMAGE HANDLING */
-.card-image-wrap {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* Guarantees standard landscape proportion constraints */
-    background-color: var(--bg-color);
-    overflow: hidden;
-}
-
-.card-banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crops and centers picture dynamics naturally across edge bounds */
-    display: block;
-    transition: var(--transition);
-}
-
-/* Zoom effect on card hover */
-.info-card-centered:hover .card-banner-img {
-    transform: scale(1.04);
-}
-
-
-/* Category Badges Layout */
-.card-badge-container {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.card-badge {
-    background-color: var(--bg-color);
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 6px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-}
-
-/* Heading Styling */
-.card-heading {
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin: 0 0 14px 0;
-    letter-spacing: -0.01em;
-}
-
-/* Description Text */
-.card-description {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0 0 24px 0;
-}
-
-/* Action Button */
-.card-button {
-    display: inline-block;
-    background-color: var(--accent);
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    padding: 12px 28px;
-    border-radius: 6px;
-    transition: var(--transition);
-}
-
-.card-button:hover {
-    background-color: var(--text-main); /* Flips to slate gray/black on hover */
-    transform: scale(1.02);
-}
-
-
         .brand-logo {
             font-size: 1.25rem;
             font-weight: 700;
@@ -288,53 +183,33 @@
 
     <!-- Center Main Content Section -->
     <main class="page-content">
- <!-- Center Main Content Section Wrap -->
-<div class="center-layout-wrapper">
-    <!-- Centered Elegant Info Box Component -->
-    <div class="info-card-centered">
-        <!-- 1. Added Card Banner Image -->
-        <div class="card-image-wrap">
-            <img src="https://unsplash.com" alt="Interactive Theatre" class="card-banner-img">
-        </div>
-        
-        <!-- 2. Content Padding Inner Area -->
-        <div class="card-body-content">
-            <div class="card-badge-container">
-                <span class="card-badge">Dining Experience</span>
-                <span class="card-badge">Live Performers</span>
+        <div class="hero-centered-block">
+            <h1>Welcome to Noosa Entertainment</h1>
+            <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
+            
+            <!-- Centered Image Component Container -->
+            <div class="image-placeholder">
+                Image Placeholder (16:9 Aspect Ratio)
+                <!-- When ready, replace the placeholder text above with an actual image tag:
+                <img src="images/performer-noosa-entertainment.jpg" alt="Description" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;"> 
+                -->
             </div>
-            
-            <h2 class="card-heading">Interactive Theatre</h2>
-            
-            <p class="card-description">
-                Bring your event to life. Allow Basil, Sybil, and Manuel to serve up chaos 
-                while you are treated to a delicious 70s-style, 3-course meal... as hilarity ensues!
-            </p>
-            
-            <a href="#" class="card-button">SEE MORE</a>
         </div>
-    </div>
-</div>
-
     </main>
 
-    <!-- Elegant Info Box Component -->
-<div class="info-card">
-    <div class="card-badge-container">
-        <span class="card-badge">Dining Experience</span>
-        <span class="card-badge">Live Performers</span>
-    </div>
-    
-    <h2 class="card-heading">Interactive Theatre</h2>
-    
-    <p class="card-description">
-        Bring your event to life. Allow Basil, Sybil, and Manuel to serve up chaos 
-        while you are treated to a delicious 70s-style, 3-course meal... as hilarity ensues!
-    </p>
-    
-    <a href="#" class="card-button">SEE MORE</a>
-</div>
+    <!-- 2️⃣ PASTE THIS HTML BLOCK EXACTLY WHERE YOU WANT IT TO APPEAR -->
+    <div class="info-box">
+        <div class="info-image-wrapper">
+            <img src="images/Basil_Faulty_Dining_Experience_Noosa_Entertainment.webp" alt="Dining Experience" class="info-image">
+        </div>
+        <div class="info-content">
+            <span class="info-tag">Live Performers</span>
+            <h2 class="info-title">Interactive, fun-as-anything Theatre</h2>
+            <p class="info-text">Allow Basil, Sybil and Manuel to serve up chaos while you are treated to a delicious 70s-style, 3-course meal ... as hilarity ensues! </p>
+            <a href="#" class="info-btn">See more</a>
 
+
+    <!-- END OF HTML BLOCK -->
 
     <!-- Bottom Footer Layout -->
     <footer class="site-footer">
