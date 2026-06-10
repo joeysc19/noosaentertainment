@@ -3709,5 +3709,26 @@ input, select, textarea {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* FOOTER STYLES */
+.site-footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 24px 20px;
+    text-align: center;
+    margin-top: auto; /* Crucial: This forces the footer to stay at the very bottom of short pages */
+}
+
+.footer-container p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* This fixes the variable name bug and applies it cleanly */
+.footer-container .footer-note {
+    color: var(--accent); 
+    font-size: 0.75rem;
+    font-weight: 500;
+}
 
 			
