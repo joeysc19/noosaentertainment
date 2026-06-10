@@ -99,7 +99,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 32px; /* Increased slightly to separate elements cleanly */
+            gap: 40px; /* Space between main title section and the info box */
         }
 
         .hero-centered-block h1 {
@@ -118,43 +118,49 @@
             max-width: 600px;
         }
 
-        /* CENTERED IMAGE PLACEHOLDER */
-        .image-placeholder {
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 16 / 9;
-            background-color: var(--card-bg);
-            border: 2px dashed var(--border-color);
-            border-radius: var(--radius);
-            overflow: hidden; /* Clips the image edges to match the radius */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-            transition: var(--transition);
-        }
-
-        /* 🆕 ELEGANT INFO BOX STYLES */
+        /* REFINED ELEGANT INFO BOX STYLES WITH IMAGE INTEGRATION */
         .info-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
-            padding: 32px;
-            max-width: 500px; /* Aligns perfectly with the image placeholder width */
+            max-width: 500px;
             width: 100%;
-            text-align: left; /* Left-aligns text inside the box as per specifications */
+            text-align: left;
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-            box-sizing: border-box;
+            overflow: hidden; /* Crucial: Clips the sharp corners of the image to match the container radius */
             transition: var(--transition);
         }
 
         .info-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -5px rgb(0 0 0 / 0.08), 0 12px 15px -6px rgb(0 0 0 / 0.08);
             border-color: var(--accent);
+        }
+
+        /* NEW: Box Image Wrapper & Image Styles */
+        .card-image-wrap {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Sets a pristine landscape shape */
+            background-color: var(--bg-color);
+            overflow: hidden;
+        }
+
+        .card-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keeps imagery un-distorted regardless of shape */
+            display: block;
+            transition: var(--transition);
+        }
+
+        /* Cinematic zoom effect on card hover */
+        .info-card:hover .card-banner-img {
+            transform: scale(1.04);
+        }
+
+        /* NEW: Separated Text Content Wrapper */
+        .card-body-content {
+            padding: 28px;
         }
 
         .card-badge-container {
@@ -249,29 +255,37 @@
     <!-- Center Main Content Section -->
     <main class="page-content">
         <div class="hero-centered-block">
-            <h1>Welcome to Noosa Entertainment</h1>
-            <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
             
-            <!-- Centered Image Component Container -->
-            <div class="image-placeholder">
-                <img src="https://unsplash.com" alt="Interactive Theatre Layout" style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;"> 
+            <div class="hero-text-intro">
+                <h1>Welcome to Noosa Entertainment</h1>
+                <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
             </div>
 
-            <!-- 🆕 NEW ADDITION: Information Box Container -->
+            <!-- Elegant Info Box Container with Integrated Image -->
             <div class="info-card">
-                <div class="card-badge-container">
-                    <span class="card-badge">Dining Experience</span>
-                    <span class="card-badge">Live Performers</span>
+                
+                <!-- 🆕 Box Image Component Layer -->
+                <div class="card-image-wrap">
+                    <img src="https://unsplash.com" alt="Interactive Theatre Show" class="card-banner-img">
                 </div>
                 
-                <h2 class="card-heading">Interactive Theatre</h2>
-                
-                <p class="card-description">
-                    Bring your event to life. Allow Basil, Sybil, and Manuel to serve up chaos 
-                    while you are treated to a delicious 70s-style, 3-course meal... as hilarity ensues!
-                </p>
-                
-                <a href="#" class="card-button">SEE MORE</a>
+                <!-- Text elements placed safely below image inside a padded layout box -->
+                <div class="card-body-content">
+                    <div class="card-badge-container">
+                        <span class="card-badge">Dining Experience</span>
+                        <span class="card-badge">Live Performers</span>
+                    </div>
+                    
+                    <h2 class="card-heading">Interactive Theatre</h2>
+                    
+                    <p class="card-description">
+                        Bring your event to life. Allow Basil, Sybil, and Manuel to serve up chaos 
+                        while you are treated to a delicious 70s-style, 3-course meal... as hilarity ensues!
+                    </p>
+                    
+                    <a href="#" class="card-button">SEE MORE</a>
+                </div>
+
             </div>
 
         </div>
@@ -287,3 +301,4 @@
 
 </body>
 </html>
+
