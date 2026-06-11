@@ -195,6 +195,82 @@
         </div>
     </main>
 
+    
+  /* 🆕 NEW: Bordered Information Box Container */
+  .info-box {
+    border: 2px solid #333;     /* Thick dark border */
+    background-color: #f9f9f9;  /* Light grey background to stand out */
+    border-radius: 8px;         /* Slightly rounded corners */
+    padding: 20px;              /* Inner padding for the info box */
+    margin: 30px 0;             /* Spacing above and below the box */
+    display: flex;              /* Aligns image and text side-by-side */
+    gap: 20px;                  /* Gap between image and text */
+    align-items: center;        /* Vertically centers the image and text */
+  }
+
+  /* 🆕 NEW: Image Styling */
+  .info-image {
+    width: 120px;               /* Fixed width for the image */
+    height: 120px;              /* Fixed height for the image */
+    object-fit: contain;          /* Prevents image distortion */
+    border-radius: 4px;         /* Soft corners for the image */
+    border: 1px solid #ccc;     /* Subtle border around the photo */
+  }
+
+  /* 🆕 NEW: Text Area inside Info Box */
+  .info-text {
+    flex: 1;                    /* Takes up the remaining available width */
+  }
+
+  .info-text h3 {
+    margin-top: 0;              /* Removes default top spacing */
+    margin-bottom: 8px;         /* Spacing below the heading */
+    color: #222;
+  }
+
+  .info-text p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* 🆕 NEW: Makes it look good on mobile phones */
+  @media (max-width: 600px) {
+    .info-box {
+      flex-direction: column;   /* Stacks image on top of text */
+      text-align: center;       /* Centers text on mobile */
+    }
+  }
+
+  .border-box {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px; 
+  }
+</style>
+</head>
+<body>
+
+  <div class="page-container">
+    <h1>Hello World!</h1>
+    
+    <!-- 🆕 NEW: Bordered Information Box Component -->
+    <div class="info-box">
+      <!-- Replace the placeholder URL with your actual image path -->
+      <img src="images/Noosa_Entertainment_logo_sm.png" alt="Information Graphic" class="info-image">
+      <div class="info-text">
+        <h3>Important Information</h3>
+        <p>This is a bordered information box. It features an image on the left and descriptive text on the right. The layout automatically adapts to smaller screens using CSS Flexbox.</p>
+      </div>
+    </div>
+
+    <h2>Block Elements Example</h2>
+    <p class="border-box">Hello World (Paragraph)</p>
+    <div class="border-box">Hello World (Div)</div>
+
+    <p>The P and the DIV elements are both block elements. They will always start on a new line and take up the full width available.</p>
+  </div>
+
 
     <!-- Bottom Footer Layout -->
     <footer class="site-footer">
