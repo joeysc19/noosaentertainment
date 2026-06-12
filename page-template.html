@@ -24,7 +24,6 @@
         }
 
         body {
-            /* Applied Montserrat globally to all heading and paragraph tags */
             font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -89,57 +88,86 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center; /* Vertically center the content block in the main space */
-            padding: 60px 20px;
+            align-items: center; 
+            padding: 60px 24px;
         }
 
-        .hero-centered-block {
+        /* 🆕 TWO-COLUMN GRID BODY CONTAINER */
+        .grid-body {
             width: 100%;
-            max-width: 700px;
-            text-align: center; /* Forces all children inline elements and text to center alignment */
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns */
+            gap: 48px;                      /* Spacing between columns */
+            align-items: center;            /* Vertically centers both columns */
+        }
+
+        /* 🆕 LEFT COLUMN ELEMENTS */
+        .column-left {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Forces block elements like the image placeholder to align in the center */
             gap: 24px;
         }
 
-        .hero-centered-block h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -0.02em;
-            color: var(--text-main);
-        }
-
-        .hero-centered-block p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin: 0;
-            max-width: 600px;
-        }
-
-        /* CENTERED IMAGE PLACEHOLDER */
         .image-placeholder {
             width: 100%;
-            max-width: 500px;
             aspect-ratio: 16 / 9;
             background-color: var(--card-bg);
             border: 2px dashed var(--border-color);
             border-radius: var(--radius);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
+            overflow: hidden;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
             transition: var(--transition);
         }
 
         .image-placeholder:hover {
             border-color: var(--accent);
-            color: var(--accent);
+        }
+
+        /* 🆕 BORDERED INFORMATION BOX */
+        .info-box {
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+        }
+
+        .info-box h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* 🆕 RIGHT COLUMN CONTENT */
+        .column-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .column-right h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .column-right p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* STICKY FOOTER STYLES */
@@ -148,7 +176,7 @@
             border-top: 1px solid var(--border-color);
             padding: 24px 20px;
             text-align: center;
-            margin-top: auto; /* Pushes the footer directly to the bottom line of the window viewport */
+            margin-top: auto; 
         }
 
         .footer-container p {
@@ -161,6 +189,22 @@
             color: var(--accent); 
             font-size: 0.75rem;
             font-weight: 500;
+        }
+
+        /* 🆕 MOBILE RESPONSIVENESS */
+        @media (max-width: 868px) {
+            .grid-body {
+                grid-template-columns: 1fr; /* Drops to single column layout */
+                gap: 32px;
+            }
+            
+            .column-right {
+                text-align: center; /* Centers layout for mobile screens */
+            }
+
+            .column-right h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -183,19 +227,32 @@
 
     <!-- Center Main Content Section -->
     <main class="page-content">
-        <div class="hero-centered-block">
-            <h1>Welcome to Noosa Entertainment</h1>
-            <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
+        
+        <!-- Two Column Grid Container -->
+        <div class="grid-body">
             
-            <!-- Centered Image Component Container -->
-<div class="image-placeholder">
-    <!-- The actual image tag goes right here, replacing the placeholder text -->
-    <img src="images/Noosa_Entertainment_logo_sm.png" alt="Interactive Theatre" style="width:100%; height:100%; object-fit:contain; border-radius:inherit; display:block;"> 
-</div>
+            <!-- ⬅️ LEFT COLUMN: Media & Extra Info Box -->
+            <div class="column-left">
+                <div class="image-placeholder">
+                    <img src="images/Noosa_Entertainment_logo_sm.png" alt="Interactive Theatre" style="width:100%; height:100%; object-fit:contain; border-radius:inherit; display:block;"> 
+                </div>
+
+                <!-- Information Box Component -->
+                <div class="info-box">
+                    <h3>Latest Updates</h3>
+                    <p>Our upcoming regional tour schedule is locked in. Click on "Tour Dates" above to find an interactive theatre experience near you.</p>
+                </div>
+            </div>
+
+            <!-- ➡️ RIGHT COLUMN: Main Typography and Welcome Statement -->
+            <div class="column-right">
+                <h1>Welcome to Noosa Entertainment</h1>
+                <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
+            </div>
+
         </div>
+
     </main>
-
-
 
     <!-- Bottom Footer Layout -->
     <footer class="site-footer">
@@ -207,3 +264,4 @@
 
 </body>
 </html>
+
