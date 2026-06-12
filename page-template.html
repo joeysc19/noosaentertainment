@@ -119,14 +119,24 @@
         }
 
         /* 🆕 NEW: Styling for the right column image container */
+        /* Updated styling to contain images perfectly */
 .column-right-image {
     width: 100%;
+    height: 350px;              /* 🆕 Sets a fixed height for all image containers */
+    background-color: #f1f5f9;  /* 🆕 Soft grey background fills any empty spaces */
     border-radius: var(--radius);
-    overflow: hidden; /* Ensures the image respects the rounded corners */
+    overflow: hidden;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
     border: 1px solid var(--border-color);
-    margin-top: 10px; /* Adds a bit of breathing room below the text */
 }
+
+/* 🆕 Targets the image tag inside the container directly */
+.column-right-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;        /* 🆕 Forces the whole image to show without cropping */
+}
+
 
         /* BORDERED INFORMATION BOX */
         .info-box {
