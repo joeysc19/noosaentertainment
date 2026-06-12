@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noosa Entertainment Template</title>
-    <!-- Import Montserrat Font from Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
         /* Modern CSS Variables & Resets */
@@ -25,7 +21,8 @@
         }
 
         body {
-            font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+            /* Using standard sans-serif system fonts directly to eliminate broken download freezes */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
@@ -59,9 +56,6 @@
             font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .main-nav ul {
@@ -89,7 +83,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center; 
+            align-items: flex-start; 
             padding: 60px 24px;
         }
 
@@ -98,9 +92,8 @@
             width: 100%;
             max-width: 1100px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; /* Explicitly forces 2 equal columns side-by-side */
             gap: 48px;                      
-            align-items: start;            
         }
 
         /* LEFT COLUMN ELEMENTS */
@@ -242,14 +235,6 @@
                 grid-template-columns: 1fr; 
                 gap: 32px;
             }
-            
-            .column-right {
-                text-align: center; 
-            }
-
-            .column-right h1 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -276,17 +261,15 @@
         <!-- Two Column Grid Container -->
         <div class="grid-body">
             
-            <!-- ⬅️ LEFT COLUMN: Media & Extra Info Boxes -->
+            <!-- LEFT COLUMN -->
             <div class="column-left">
                 <div class="image-placeholder">
                     <img src="images/Noosa_Entertainment_logo_sm.png" alt="Interactive Theatre" style="width:100%; height:100%; object-fit:contain; border-radius:inherit; display:block;"> 
                 </div>
 
-                <!-- First Information Box Component -->
                 <div class="info-box">
                     <h3>
-                        <!-- Calendar Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
                         </svg>
                         <span>Latest Updates</span>
@@ -294,11 +277,9 @@
                     <p>Our upcoming regional tour schedule is locked in. Click on "Tour Dates" above to find an interactive theatre experience near you.</p>
                 </div>
 
-                <!-- SECOND INFORMATION BOX -->
                 <div class="info-box accent-box">
                     <h3>
-                        <!-- Info Circle Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 111.063 1.063L12 13.062v3.377m0-7.5h.008v.008H12V8.25zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Ticket Bookings</span>
@@ -306,8 +287,28 @@
                     <p>Early bird ticket sales are now open for all summer performances. Groups of 10 or more qualify for a 15% discount at checkout.</p>
                     <a href="#" class="info-box-btn">Book Tickets Now</a>
                 </div>
-            </div> <!-- Cleanly closes left column -->
+            </div>
 
+            <!-- RIGHT COLUMN -->
+            <div class="column-right">
+                <h1>Welcome to Noosa Entertainment</h1>
+                <p>This template features clean, responsive grid layout configurations for fast branding adjustments.</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Bottom Footer Layout -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Noosa Entertainment. All Rights Reserved.</p>
+            <p class="footer-note">Thank you.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
 
             
                 
