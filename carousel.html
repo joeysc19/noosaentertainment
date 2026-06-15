@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Editorial Carousel</title>
+    <!-- Font Awesome Link for Navigation Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0f0f11;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* Main Container */
+        .carousel-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        /* Sliding Track */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        /* Individual Slide */
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            height: 550px;
+            overflow: hidden;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.75);
+            transition: transform 0.6s ease;
+        }
+        .carousel-slide:hover img {
+            transform: scale(1.03);
+        }
+        /* Premium Text Caption Overlay */
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 60px 40px 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: #ffffff;
+        }
+        .slide-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #b3b3b3;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .carousel-caption h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .carousel-caption p {
+            font-size: 16px;
+            color: #e0e0e0;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+        /* Premium Navigation Buttons */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #ffffff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .nav-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
+        .nav-btn.prev { left: 25px; }
+        .nav-btn.next { right: 25px; }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-wrapper">
+        <div class="carousel-track">
+            <!-- Slide 1 -->
+            <div class="carousel-slide">
+                <img src="https://unsplash.com" alt="Sculpted Forms">
+                <div class="carousel-caption">
+                    <span class="slide-tag">01 / Texture</span>
+                    <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Sculpted Structure</h2>
+                    <p>Clean tailoring and controlled volume create a look that feels structured, confident, and quietly expressive.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="https://unsplash.com" alt="Bold Visuals">
+                <div class="carousel-caption">
+                    <span class="slide-tag">02 / Contrast</span>
+                    <h2><i class="fa-solid fa-palette"></i> Expressive Moments</h2>
+                    <p>Dark tailoring, clean space, and sharp design selections give the visual composition structural strength, tension, and precision.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="https://unsplash.com" alt="Rhythmic Flow">
+                <div class="carousel-caption">
+                    <span class="slide-tag">03 / Rhythm</span>
+                    <h2><i class="fa-solid fa-music"></i> Balanced Restraint</h2>
+                    <p>Repeating folds, intentional motion, and measured proportions provide the overall layout with a clean sense of visual harmony.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <button class="nav-btn prev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="nav-btn next" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.nav-btn.prev');
+        const nextBtn = document.querySelector('.nav-btn.next');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateCarouselPosition() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarouselPosition();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarouselPosition();
+        });
+
+        // Optional: Automatic rotation cycle every 5 seconds
+        let autoPlay = setInterval(() => {
+            nextBtn.click();
+        }, 5000);
+
+        // Reset timer when user manually interacts
+        const resetTimer = () => {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(() => {
+                nextBtn.click();
+            }, 5000);
+        };
+
+        prevBtn.addEventListener('click', resetTimer);
+        nextBtn.addEventListener('click', resetTimer);
+    </script>
+</body>
+</html>
