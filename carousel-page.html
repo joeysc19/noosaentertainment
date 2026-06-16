@@ -7,7 +7,7 @@
     <!-- Import Montserrat Font from Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
         /* Modern CSS Variables & Resets */
@@ -24,7 +24,6 @@
         }
 
         body {
-            /* Applied Montserrat globally to all heading and paragraph tags */
             font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -89,17 +88,17 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center; /* Vertically center the content block in the main space */
+            align-items: center;
             padding: 60px 20px;
         }
 
         .hero-centered-block {
             width: 100%;
             max-width: 700px;
-            text-align: center; /* Forces all children inline elements and text to center alignment */
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Forces block elements to align in the center */
+            align-items: center;
             gap: 24px;
         }
 
@@ -119,13 +118,29 @@
             max-width: 600px;
         }
 
-        /* MERGED CAROUSEL STYLES */
+        /* RE-ADDED LOGO WRAPPER */
+        .brand-logo-display {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 8px;
+        }
+
+        .brand-logo-display img {
+            width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* CAROUSEL STYLES */
         .carousel { 
             width: 100%; 
             max-width: 600px; 
             overflow: hidden; 
             position: relative; 
-            border-radius: var(--radius); /* Blends with template styles */
+            border-radius: var(--radius);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
         }
         
@@ -163,7 +178,7 @@
             border-top: 1px solid var(--border-color);
             padding: 24px 20px;
             text-align: center;
-            margin-top: auto; /* Pushes the footer directly to the bottom line of the window viewport */
+            margin-top: auto;
         }
 
         .footer-container p {
@@ -202,7 +217,12 @@
             <h1>Welcome to Noosa Entertainment</h1>
             <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
             
-            <!-- Merged Interactive Carousel Component Container -->
+            <!-- Re-included Brand Logo Image Component -->
+            <div class="brand-logo-display">
+                <img src="images/Noosa_Entertainment_logo_sm.png" alt="Noosa Entertainment Logo"> 
+            </div>
+
+            <!-- Interactive Carousel Component Container -->
             <div class="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item">
@@ -239,4 +259,5 @@
     </script>
 </body>
 </html>
+
 
