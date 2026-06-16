@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noosa Entertainment Template</title>
+    <title>Noosa Entertainment Template with Carousel</title>
     <!-- Import Montserrat Font from Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -99,7 +99,7 @@
             text-align: center; /* Forces all children inline elements and text to center alignment */
             display: flex;
             flex-direction: column;
-            align-items: center; /* Forces block elements like the image placeholder to align in the center */
+            align-items: center; /* Forces block elements to align in the center */
             gap: 24px;
         }
 
@@ -119,27 +119,42 @@
             max-width: 600px;
         }
 
-        /* CENTERED IMAGE PLACEHOLDER */
-        .image-placeholder {
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 16 / 9;
-            background-color: var(--card-bg);
-            border: 2px dashed var(--border-color);
-            border-radius: var(--radius);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.95rem;
+        /* MERGED CAROUSEL STYLES */
+        .carousel { 
+            width: 100%; 
+            max-width: 600px; 
+            overflow: hidden; 
+            position: relative; 
+            border-radius: var(--radius); /* Blends with template styles */
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-            transition: var(--transition);
         }
-
-        .image-placeholder:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+        
+        .carousel-inner { 
+            display: flex; 
+            transition: transform 0.5s ease; 
+        }
+        
+        .carousel-item { 
+            min-width: 100%; 
+            box-sizing: border-box; 
+            position: relative; 
+        }
+        
+        .carousel-item img { 
+            width: 100%; 
+            display: block; 
+        }
+        
+        .caption { 
+            position: absolute; 
+            bottom: 10px; 
+            left: 10px; 
+            background: rgba(0,0,0,0.65); 
+            color: #fff; 
+            padding: 10px 14px; 
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* STICKY FOOTER STYLES */
@@ -187,15 +202,22 @@
             <h1>Welcome to Noosa Entertainment</h1>
             <p>This template is built using the Montserrat font family and features clean, responsive flexbox layout variables for fast branding adjustments.</p>
             
-            <!-- Centered Image Component Container -->
-<div class="image-placeholder">
-    <!-- The actual image tag goes right here, replacing the placeholder text -->
-    <img src="images/Noosa_Entertainment_logo_sm.png" alt="Interactive Theatre" style="width:100%; height:100%; object-fit:contain; border-radius:inherit; display:block;"> 
-</div>
+            <!-- Merged Interactive Carousel Component Container -->
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="images/A-CHRISTMAS-MASK-FAMILY-CAROUSEL-ASAP-ENTERTAINMENT.jpg" alt="Christmas Family Carousel">
+                        <div class="caption">Christmas is here again!</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Dancing-Queen_Tribute-ABBA_Noosa_Entertainment.webp" alt="Dancing Queen ABBA Tribute">
+                        <div class="caption">Who doesn't love an ABBA night?</div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </main>
-
-
 
     <!-- Bottom Footer Layout -->
     <footer class="site-footer">
@@ -205,5 +227,16 @@
         </div>
     </footer>
 
+    <!-- Carousel Animation Controller script -->
+    <script>
+        let index = 0;
+        const inner = document.querySelector('.carousel-inner');
+        function move() {
+            index = (index + 1) % 2;
+            inner.style.transform = `translateX(-${index * 100}%)`;
+        }
+        setInterval(move, 3000);
+    </script>
 </body>
 </html>
+
