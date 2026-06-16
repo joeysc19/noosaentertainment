@@ -123,6 +123,23 @@
     <button class="carousel-btn next" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
 </div>
 
+  <!-- Add this at the very bottom of your <body> section -->
+<script>
+    let currentIdx = 0;
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    
+    function moveSlide(direction) {
+        currentIdx += direction;
+        if (currentIdx >= slides.length) {
+            currentIdx = 0;
+        } else if (currentIdx < 0) {
+            currentIdx = slides.length - 1;
+        }
+        track.style.transform = `translateX(-${currentIdx * 100}%)`;
+    }
+</script>
+
 
 </body>
 </html>
