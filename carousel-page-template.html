@@ -98,13 +98,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px; /* Reduced vertical padding to allow true centering */
-            
-            /* FORCES DEAD VERTICAL CENTERING */
-            min-height: calc(100vh - 150px); 
-            box-sizing: border-box;
+            padding: 60px 20px;
         }
-
 
         .hero-centered-block {
             width: 100%;
@@ -272,38 +267,22 @@
     display: block;
 }
 
-/* PARENT CONTAINER: Forces all child items into the absolute center */
-.hero-centered-block {
+        .tight-text-group {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    text-align: center;  /* Keeps headlines and standalone paragraph text centered */
-    width: 100%;
-}
-
-/* TEXT GROUP BOX: Centers itself globally, but aligns its inner content left */
-.tight-text-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Left-aligns the text lines relative to each other */
-    gap: 6px;  
+    gap: 2px;  /* Micro-spacing between the two lines; set to 0px to close it fully */
+    margin: 0;
     padding: 0;
-    margin: 15px auto;       /* Pushes the container box into the exact horizontal center */
-    width: max-content;      /* Shrinks the box tightly around your longest text line */
 }
 
-/* INDIVIDUAL LINES: Anchors icons and labels to the left edge */
 .custom-icon-line {
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
-    gap: 8px;   
-    margin: 0;  
-    line-height: 1.3; 
+    justify-content: center;
+    gap: 8px;   /* Spacing between your image icon and text */
+    margin: 0;  /* Wipes out empty vertical padding gaps */
+    line-height: 1.3; /* Lowers text height bounds to pull text vertically closer */
 }
-
-
-
 
 .custom-icon {
     width: 22px;
