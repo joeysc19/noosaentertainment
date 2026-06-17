@@ -237,6 +237,22 @@
             }
         }
 
+
+        .icon-text-line {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Keeps things centered like your current hero layout */
+    gap: 8px; /* Adds space between the icon and text */
+    margin-bottom: 6px; /* Adds space between the two lines */
+    color: var(--text-main);
+}
+
+.icon-text-line .material-symbols-outlined {
+    color: var(--accent); /* Makes icons match your purple/indigo accent color */
+    font-size: 1.3rem; /* Adjusts icon scale to match text size nicely */
+}
+
+
     </style>
 
 
@@ -261,7 +277,17 @@
     <main class="page-content">
         <div class="hero-centered-block">
             <h1>Welcome to<br>Noosa Entertainment</h1>
-            <p>Noosa - Sunshine Coast - Queensland<br><br>Interactive Entertainment<br>Events - Corporate - Private</p>
+            <p>Noosa - Sunshine Coast - Queensland<br></p>
+
+            <div class="icon-text-line">
+    <span class="material-symbols-outlined">sports_esports</span>
+    <span>Interactive Entertainment</span>
+</div>
+<div class="icon-text-line">
+    <span class="material-symbols-outlined">celebration</span>
+    <span>Events - Corporate - Private</span>
+</div>
+
             
             <!-- Re-included Brand Logo Image Component (Resized Bigger) -->
             <div class="brand-logo-display">
