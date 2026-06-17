@@ -276,13 +276,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Keeps the text lines aligned on their left edge */
-    gap: 2px;  
+    gap: 4px;  
     padding: 0;
+    margin: 0;
     
-    /* THE CENTERING FIX */
-    width: max-content;      /* Forces container to only be as wide as the longest line */
-    margin: 0 auto;          /* Automatically splits left/right space to center the block */
+    /* NEW WORKING CENTERING METHOD */
+    width: max-content;      /* Shrinks the box to perfectly hug the text */
+    align-self: center;      /* Forces the entire box into the dead center */
 }
+
 
 
 .custom-icon-line {
