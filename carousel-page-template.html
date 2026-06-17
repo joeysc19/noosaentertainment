@@ -252,6 +252,22 @@
     font-size: 1.3rem; /* Adjusts icon scale to match text size nicely */
 }
 
+        .custom-icon-line {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Keeps text centered in your hero block */
+    gap: 10px;               /* Space between your image icon and text */
+    margin-bottom: 8px;      /* Space between the two lines */
+}
+
+.custom-icon {
+    width: 24px;             /* Forces the image down to icon width */
+    height: 24px;            /* Forces the image down to icon height */
+    object-fit: contain;     /* Prevents your image from squishing or stretching */
+    display: block;
+}
+
+
 
     </style>
 
@@ -279,14 +295,15 @@
             <h1>Welcome to<br>Noosa Entertainment</h1>
             <p>Noosa - Sunshine Coast - Queensland<br></p>
 
-            <div class="icon-text-line">
-    <span class="material-symbols-outlined">sports_esports</span>
+<div class="custom-icon-line">
+    <img src="images/pandanus.png" alt="Interactive Icon" class="custom-icon">
     <span>Interactive Entertainment</span>
 </div>
-<div class="icon-text-line">
-    <span class="material-symbols-outlined">celebration</span>
+<div class="custom-icon-line">
+    <img src="images/pandanus.png" alt="Events Icon" class="custom-icon">
     <span>Events - Corporate - Private</span>
 </div>
+
 
             
             <!-- Re-included Brand Logo Image Component (Resized Bigger) -->
