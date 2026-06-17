@@ -98,8 +98,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 60px 20px;
+            padding: 20px; /* Reduced vertical padding to allow true centering */
+            
+            /* FORCES DEAD VERTICAL CENTERING */
+            min-height: calc(100vh - 150px); 
+            box-sizing: border-box;
         }
+
 
         .hero-centered-block {
             width: 100%;
