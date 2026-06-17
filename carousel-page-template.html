@@ -272,29 +272,27 @@
     display: block;
 }
 
+/* CONTAINER: Perfectly centers the entire block on your page */
 .tight-text-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Keeps the text lines aligned on their left edge */
-    gap: 4px;  
+    align-items: flex-start; /* Aligns individual text lines to the left */
+    gap: 6px;  
     padding: 0;
-    margin: 0;
-    
-    /* NEW WORKING CENTERING METHOD */
-    width: max-content;      /* Shrinks the box to perfectly hug the text */
-    align-self: center;      /* Forces the entire box into the dead center */
+    margin: 0 auto 15px auto; /* Centers the bounding box horizontally */
+    width: max-content;       /* Shrinks the box tight around your longest line */
 }
 
-
-
+/* INDIVIDUAL LINES: Keeps icons and labels grouped tightly */
 .custom-icon-line {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Shifts icons and text to the far left */
+    justify-content: flex-start; /* Forces items inside the line to start on the left */
     gap: 8px;   
     margin: 0;  
     line-height: 1.3; 
 }
+
 
 
 .custom-icon {
