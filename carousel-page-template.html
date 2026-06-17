@@ -11,9 +11,10 @@
 
     
     <style>
+    <style>
         /* Modern CSS Variables & Resets */
         :root {
-            --bg-color: #ffffff;
+            --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --text-muted: #64748b;
@@ -24,12 +25,6 @@
             --transition: all 0.25s ease;
         }
 
-        /* This forces Arial out and locks Montserrat in for all text headings and paragraphs */
-h1, p, a, div {
-    font-family: 'Montserrat', sans-serif !important;
-}
-
-
         body {
             font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-color);
@@ -39,6 +34,11 @@ h1, p, a, div {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+        }
+
+        /* Clean global typography hierarchy without !important tags */
+        h1, h2, h3, h4, h5, h6, p, a, span, button, li {
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* HEADER STYLES */
@@ -106,7 +106,7 @@ h1, p, a, div {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 32px; /* Increased gap for 3D spacing depth */
+            gap: 32px;
         }
 
         .hero-centered-block h1 {
@@ -128,7 +128,7 @@ h1, p, a, div {
         /* ENLARGED BRAND LOGO DISPLAY */
         .brand-logo-display {
             width: 100%;
-            max-width: 400px; /* Scaled to match the 3D carousel frame width */
+            max-width: 400px;
             margin-bottom: 8px;
         }
 
@@ -159,7 +159,7 @@ h1, p, a, div {
             transform: perspective(800px);
             animation: autoRun3d 20s linear infinite;
             will-change: transform;
-            margin: 20px 0; /* Padding space to let 3D layers spin cleanly */
+            margin: 20px 0;
         }
 
         .card-3d div {
@@ -175,10 +175,9 @@ h1, p, a, div {
             animation: animateBrightness 20s linear infinite;
             transition-duration: 200ms;
             will-change: transform, filter;
-            overflow: hidden; /* Keeps images nested nicely in card curves */
+            overflow: hidden;
         }
 
-        /* Ensures photos completely scale down inside smaller 3D panel segments */
         .card-3d div img {
             width: 100%;
             height: 100%;
@@ -187,7 +186,7 @@ h1, p, a, div {
         }
 
         .card-3d:hover, .card-3d:hover div {
-            animation-play-state: paused !important;
+            animation-play-state: paused;
         }
 
         /* 3D Panel Angles */
@@ -222,6 +221,14 @@ h1, p, a, div {
             font-size: 0.75rem;
             font-weight: 500;
         }
+
+        /* MOBILE TARGETED STYLES */
+        @media (max-width: 768px) {
+            .hero-centered-block h1 {
+                font-size: 1.65rem; /* Safely resizes on iPhone 11 viewports */
+            }
+        }
+    </style>
 
 
 
