@@ -272,26 +272,36 @@
     display: block;
 }
 
-/* CONTAINER: Perfectly centers the entire block on your page */
+/* PARENT CONTAINER: Forces all child items into the absolute center */
+.hero-centered-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;  /* Keeps headlines and standalone paragraph text centered */
+    width: 100%;
+}
+
+/* TEXT GROUP BOX: Centers itself globally, but aligns its inner content left */
 .tight-text-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns individual text lines to the left */
+    align-items: flex-start; /* Left-aligns the text lines relative to each other */
     gap: 6px;  
     padding: 0;
-    margin: 0 auto 15px auto; /* Centers the bounding box horizontally */
-    width: max-content;       /* Shrinks the box tight around your longest line */
+    margin: 15px auto;       /* Pushes the container box into the exact horizontal center */
+    width: max-content;      /* Shrinks the box tightly around your longest text line */
 }
 
-/* INDIVIDUAL LINES: Keeps icons and labels grouped tightly */
+/* INDIVIDUAL LINES: Anchors icons and labels to the left edge */
 .custom-icon-line {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Forces items inside the line to start on the left */
+    justify-content: flex-start; 
     gap: 8px;   
     margin: 0;  
     line-height: 1.3; 
 }
+
 
 
 
