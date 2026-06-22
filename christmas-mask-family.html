@@ -1,0 +1,449 @@
+Test2.html - purple page
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Mask Family - Noosa Entertainment</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-color: #0f0f12;
+            --card-bg: #1a1a24;
+            --accent-color: #9d4edd;
+            --accent-hover: #7b2cbf;
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+            --border-color: #2a2a35;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Container helper */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            background-color: rgba(15, 15, 18, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: flex-end;
+            background: linear-gradient(to top, var(--bg-color), rgba(15, 15, 18, 0.0)), 
+                        url('https://noosaentertainment.com.au/images/performer-noosa-entertainment.jpg') no-repeat center center/cover;
+            padding-bottom: 60px;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+        .social-icon:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Profile Grid Layout */
+        .main-content {
+            padding: 60px 0;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 45px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        /* About & Music */
+        .about-text {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        /* Music Widget Placeholder */
+        .music-player {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        .album-art {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        .track-info {
+            flex-grow: 1;
+        }
+        .track-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .track-album {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .audio-placeholder {
+            width: 100%;
+            height: 30px;
+            background: #252535;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Sidebar: Tour Dates & News */
+        .sidebar-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+        }
+        .tour-list {
+            list-style: none;
+        }
+        .tour-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .tour-item:last-child {
+            border-bottom: none;
+        }
+        .tour-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+        .tour-location {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .tour-venue {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .btn-tickets {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-tickets:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1 / 1;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #08080a;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="https://noosaentertainment.com.au" class="logo">NOOSA ENTERTAINMENT</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#"></a></li>
+                    <li><a href="#" style="color: var(--accent-color);"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <p>PERFORMER / INFO</p>
+            <h1>Performer 1</h1>
+            <div class="social-icons">
+                <a href="#" class="social-icon">HERE</a>
+                <a href="#" class="social-icon">HERE</a>
+                <a href="#" class="social-icon">HERE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="container main-content">
+        <div class="grid-layout">
+            
+            <!-- Left Side: Bio, Featured Releases, Gallery -->
+            <main>
+                <!-- About Section -->
+                <section>
+                    <h2 class="section-title">Biography</h2>
+                    <p class="about-text">
+                        Aria Vance is an award-winning electronic producer and songwriter known for blending lush atmospheric textures with driving synth-pop rhythms. Originating from her home studio, her sound has evolved into a fully immersive audio-visual experience that captivates festival audiences worldwide.
+                    </p>
+                    <p class="about-text">
+                        With over three million monthly streams and collaborations with some of the industry's most progressive visual designers, Vance continues to push the boundaries of modern ambient pop.
+                    </p>
+                </section>
+
+                <!-- Featured Music -->
+                <section>
+                    <h2 class="section-title">Featured Release</h2>
+                    
+                    <div class="music-player">
+                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=150&q=80" alt="Album Art" class="album-art">
+                        <div class="track-info">
+                            <div class="track-title">Ethereal Nights</div>
+                            <div class="track-album">Single • 2026</div>
+                            <!-- Mock Audio Bar -->
+                            <div class="audio-placeholder">
+                                [ Click to stream on external platforms ]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="music-player">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=150&q=80" alt="Album Art" class="album-art">
+                        <div class="track-info">
+                            <div class="track-title">Neon Echoes</div>
+                            <div class="track-album">EP • 2025</div>
+                            <div class="audio-placeholder">
+                                [ Click to stream on external platforms ]
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Media Gallery -->
+                <section>
+                    <h2 class="section-title">Gallery</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80" alt="Aria Vance performance">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80" alt="Aria Vance studio">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=500&q=80" alt="Live crowd">
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Right Side: Tour Dates/Sidebar -->
+            <aside>
+                <div class="sidebar-section">
+                    <h2 class="section-title">Tour Dates</h2>
+                    <ul class="tour-list">
+                        <li class="tour-item">
+                            <div>
+                                <div class="tour-date">Oct 12, 2026</div>
+                                <div class="tour-location">London, UK</div>
+                                <div class="tour-venue">The O2 Arena</div>
+                            </div>
+                            <button class="btn-tickets">Tickets</button>
+                        </li>
+                        <li class="tour-item">
+                            <div>
+                                <div class="tour-date">Oct 18, 2026</div>
+                                <div class="tour-location">Paris, FR</div>
+                                <div class="tour-venue">L'Olympia</div>
+                            </div>
+                            <button class="btn-tickets">Tickets</button>
+                        </li>
+                        <li class="tour-item">
+                            <div>
+                                <div class="tour-date">Nov 02, 2026</div>
+                                <div class="tour-location">Berlin, DE</div>
+                                <div class="tour-venue">Columbiahalle</div>
+                            </div>
+                            <button class="btn-tickets">Tickets</button>
+                        </li>
+                        <li class="tour-item">
+                            <div>
+                                <div class="tour-date">Nov 15, 2026</div>
+                                <div class="tour-location">New York, US</div>
+                                <div class="tour-venue">Brooklyn Steel</div>
+                            </div>
+                            <button class="btn-tickets">Tickets</button>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Noosa Entertainment. All Rights Reserved.</p>
+            <p style="color: var(--accent-color); font-size: 0.75rem;">Thank you.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
