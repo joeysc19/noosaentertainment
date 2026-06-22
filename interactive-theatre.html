@@ -348,11 +348,26 @@
         </svg>
         <span>Mesmerising Bubbles</span>
     </h3>
-    <p>A fabulous event installation that makes everyone smile sweetly</p>
+    <p>A fabulous event installation that makes everyone smile sweetly ...</p>
     
     <!-- Optional Button Link -->
     <a href="#" class="info-box-btn">See more</a>
 </div>
+
+                // Ensure you have this import statement at the top of your React file:
+import { ChristmasTree } from "@/components/ui/christmas-tree"
+
+// Inside your layout return block:
+<div class="info-box accent-box">
+    <h3>
+        {/* Render the shadcn component directly */}
+        <ChristmasTree />
+        <span>Mesmerising Bubbles</span>
+    </h3>
+    <p>A fabulous event installation that makes everyone smile sweetly ...</p>
+    <a href="#" class="info-box-btn">See more</a>
+</div>
+
 
 
 
